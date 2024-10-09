@@ -295,12 +295,12 @@ const MyForm = () => {
   };
 
   const handleDownloadGradient = () => {
+    setLoading(true)
     if(contactErrorMsg){
       alert(contactErrorMsg)
     }
     else {
 
-    setLoading(true)
     if (selectedFile) {
       const formData = new FormData();
       formData.append('image', selectedFile);
@@ -477,8 +477,8 @@ const MyForm = () => {
             </CardContent>
           </Card>
 
-          <Button variant="contained" sx={{ mt: 3 }} onClick={handleDownloadGradient} disabled={(!selectedFile || !name || !contact)}>
-            {loading ? <CircularProgress size={24} /> : 'Download'}
+          <Button variant="contained" sx={{ mt: 3 }} onClick={handleDownloadGradient} disabled={(!selectedFile || !name || !contact || loading)}>
+             Download
           </Button>
         </Container>
       </Grid>
