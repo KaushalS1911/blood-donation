@@ -355,29 +355,34 @@ const MyForm = () => {
             <img src={img} alt="image-preview" height={'100%'} width={'100%'} style={{objectFit:"contain"}} />
 
             {imagePreview && (
-              <Typography component={"img"} src={imagePreview} sx={{ position: 'absolute', top: {lg:'45%',md:'44.7%',sm:"45.3%",xs:"45%"}, right: {lg:'4.7%',md:"4.8%",sm:"5.2%",xs:"5%"}, height: {lg:'26%',md:"26%",sm:"25%",xs:"25%"}, width: {lg:'26%',md:"26%",sm:"25%",xs:"25%"}, borderRadius: '50%' }} />
+              <Typography component={"img"} src={imagePreview} sx={{ position: 'absolute', top: {sm:"8.3%",xs:"8%"}, right: {xs:"8.8%"}, height: "24%", width: '24%', borderRadius: '50%' }} />
             )}
 
           </Box>
-          <Box >
-
-        <input
-          value={name}
-          style={{
+          <Box sx={{
+            width: '35%',
             position: 'absolute',
-            bottom: '24%',
-            right: "8.5%",
-            width: '18%',
-            fontSize:"70%",
-            height:"18px",
-            border: "none",
-            backgroundColor: "transparent",
-            outline: "none",
-            color: "white",
-            textAlign:"center"
-          }}
-        />
+            top: { sm: '34.6%', xs: "31%" },
+            right: "3.6%",
+            '& input': {
+              width: '100%',
+              height: "18px",
+              border: "none",
+              backgroundColor: "transparent",
+              outline: "none",
+              color: "white",
+              textAlign: "center",
+              fontSize: {
+                xs: '10px',  // Small screens
+                sm: '12px',  // Medium screens
+                md: '14px',  // Larger screens
+                lg: '16px'   // Very large screens
+              }
+            }
+          }}>
+            <input value={name} />
           </Box>
+
         </Box>
       </Grid>
       <Grid item xs={12} lg={5} >
@@ -480,6 +485,7 @@ const MyForm = () => {
           <Button variant="contained" sx={{ mt: 3 }} onClick={handleDownloadGradient} disabled={(!selectedFile || !name || !contact || loading)}>
              Download
           </Button>
+
         </Container>
       </Grid>
     </Grid>
