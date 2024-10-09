@@ -268,6 +268,8 @@ const MyForm = () => {
   const [imagePreview, setImagePreview] = useState(null);
   const fileInputRef = useRef(null);
   const [loading, setLoading] = useState(false);
+  const [contactError, setContactError] = useState(false);
+  const [contactErrorMsg, setContactErrorMsg] = useState('');
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -293,6 +295,11 @@ const MyForm = () => {
   };
 
   const handleDownloadGradient = () => {
+    if(contactErrorMsg){
+      alert(contactErrorMsg)
+    }
+    else {
+
     setLoading(true)
     if (selectedFile) {
       const formData = new FormData();
@@ -300,25 +307,45 @@ const MyForm = () => {
       formData.append('name', name);
       formData.append('contact', contact);
 
-      axios.post('https://blood-donation-be.onrender.com/api/card', formData).then((res) => console.log(res)).catch((err) => console.log(err));}
-    const imageWidth = 1600
-    html2canvas(gradientRef.current, {
-      scale: imageWidth / gradientRef.current.offsetWidth
-    }).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png")
+      axios.post('https://blood-donation-be.onrender.com/api/card', formData).then((res) => {
+        const imageWidth = 1600
+        html2canvas(gradientRef.current, {
+          scale: imageWidth / gradientRef.current.offsetWidth
+        }).then((canvas) => {
+          const imgData = canvas.toDataURL("image/png")
 
-      const downloadLink = document.createElement("a")
-      downloadLink.href = imgData
-      downloadLink.download = "image.png"
-      downloadLink.click()
-      setLoading(false)
-      setName('')
-      setContact('')
-      setSelectedFile(null);
-      setImagePreview(null);
-    })
-  }
+          const downloadLink = document.createElement("a")
+          downloadLink.href = imgData
+          downloadLink.download = "image.png"
+          downloadLink.click()
+          setLoading(false)
+          setName('')
+          setContact('')
+          setSelectedFile(null);
+          setImagePreview(null);
+        })
+        }
+      ).catch((err) => console.log(err));}
 
+  }}
+  const handlePhoneChange = (e) => {
+    const value = e.target.value;  // Trim any extra spaces
+
+    // Regular expression for validating a phone number (digits only, with a length check)
+    const phoneRegex = /^[0-9]{10}$/;  // Phone number with exactly 10 digits
+
+    setContact(value);
+
+    if (!phoneRegex.test(value)) {
+      setContactError(true);
+      setContactErrorMsg('Please enter a valid 10-digit phone number.');
+    } else {
+      setContactError(false);
+      setContactErrorMsg('');
+    }
+  console.log(setContactErrorMsg)
+
+  };
   return (
     <Grid container py={5}>
       <Grid item xs={12} lg={7} sx={{ display: 'flex', flexDirection: 'column', alignItems: {lg:'end',xs:"center"}}}>
@@ -442,7 +469,9 @@ const MyForm = () => {
                 label="Phone No."
                 variant="outlined"
                 value={contact}
-                onChange={(e) => setContact(e.target.value)}
+                onChange={(e) => handlePhoneChange(e)}
+                error={contactError}
+                helperText={contactError ? contactErrorMsg : ''}
                 fullWidth
               />
             </CardContent>
