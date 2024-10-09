@@ -1,11 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import MyForm from "./Form";
-
+import {Route,Routes} from "react-router-dom";
 export default function App() {
   return (
    <>
-     <MyForm/>
+     <Routes>
+       <Route path={'/'} element={<MyForm/>} />
+     </Routes>
+
    </>
   );
 }
