@@ -332,7 +332,7 @@ const MyForm = () => {
             )}
 
           </Box>
-          {/*<Box >*/}
+          <Box >
 
         <input
           value={name}
@@ -341,6 +341,7 @@ const MyForm = () => {
             bottom: '24%',
             right: "8.5%",
             width: '18%',
+            fontSize:"70%",
             height:"18px",
             border: "none",
             backgroundColor: "transparent",
@@ -349,7 +350,7 @@ const MyForm = () => {
             textAlign:"center"
           }}
         />
-          {/*</Box>*/}
+          </Box>
         </Box>
       </Grid>
       <Grid item xs={12} lg={5} >
@@ -357,7 +358,7 @@ const MyForm = () => {
           <Card variant="outlined" sx={{ width: {md:'400px',xs:"100%"}, p: 2, mb: 4 }}>
             <Typography variant="h6">Upload Profile Pic</Typography>
             <Typography variant="body2" color="textSecondary">
-              આપણી ફોટો અહીં મૂકો. <br />
+              આપનો ફોટો અહીં મૂકો. <br />
               Click on the upload icon to upload profile pic.
             </Typography>
             <Box
