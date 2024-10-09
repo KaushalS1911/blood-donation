@@ -325,7 +325,7 @@ const MyForm = () => {
           setImagePreview(null);
         })
         }
-      ).catch((err) => console.log(err));}
+      ).catch((err) => setLoading(false));}
 
   }}
   const handlePhoneChange = (e) => {
@@ -355,20 +355,22 @@ const MyForm = () => {
             <img src={img} alt="image-preview" height={'100%'} width={'100%'} style={{objectFit:"contain"}} />
 
             {imagePreview && (
-              <Typography component={"img"} src={imagePreview} sx={{ position: 'absolute', top: {sm:"8.3%",xs:"8%"}, right: {xs:"8.8%"}, height: "24%", width: '24%', borderRadius: '50%' }} />
+              <Typography component={"img"} src={imagePreview} sx={{ position: 'absolute', top: {sm:"8.3%",xs:"8%"}, right: {xs:"5.1%"}, height: "24%", width: '24%', borderRadius: '50%' }} />
             )}
 
           </Box>
           <Box sx={{
             width: '35%',
             position: 'absolute',
-            top: { sm: '34.6%', xs: "31%" },
-            right: "3.6%",
+            top: { sm: '34%', xs: "33%" },
+            right: "1.5%",
             '& input': {
               width: '100%',
+              py: {md:1,xs:0.5},
               height: "18px",
               border: "none",
-              backgroundColor: "transparent",
+              borderRadius:1,
+              backgroundColor: "#00421E",
               outline: "none",
               color: "white",
               textAlign: "center",
