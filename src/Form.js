@@ -312,6 +312,10 @@ const MyForm = () => {
       downloadLink.download = "image.png"
       downloadLink.click()
       setLoading(false)
+      setName('')
+      setContact('')
+      setSelectedFile(null);
+      setImagePreview(null);
     })
   }
 
