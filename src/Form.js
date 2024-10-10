@@ -359,7 +359,7 @@ const MyForm = () => {
             )}
 
           </Box>
-          <Box sx={{
+          <Box  sx={{
             width: '35%',
             position: 'absolute',
             top: { sm: '34%', xs: "33%" },
@@ -373,7 +373,6 @@ const MyForm = () => {
               backgroundColor: "#00421E",
               outline: "none",
               color: "white",
-              textAlign: "center",
               fontSize: {
                 xs: '10px',  // Small screens
                 sm: '12px',  // Medium screens
@@ -382,7 +381,7 @@ const MyForm = () => {
               }
             }
           }}>
-            <input value={name} />
+            <input value={name} id='heet'/>
           </Box>
 
         </Box>
