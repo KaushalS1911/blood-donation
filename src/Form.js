@@ -362,11 +362,11 @@ const MyForm = () => {
               top: { sm: '34%', xs: "33%" },
               right: "1.5%",
               display: 'flex',
-              justifyContent: 'center', // Center the content horizontally
-              alignItems: 'center', // Center the content vertically
+              justifyContent: 'center',
+              alignItems: 'center',
               marginBottom: { sm: '20px', xs: '15px' },
               '& input': {
-                textAlign: "center", // Center text inside the input
+                textAlign: "center",
                 width: '100%',
                 py: { md: 1, xs: 0.5 },
                 height: "18px",
@@ -376,10 +376,10 @@ const MyForm = () => {
                 outline: "none",
                 color: "white",
                 fontSize: {
-                  xs: '10px',  // Small screens
-                  sm: '12px',  // Medium screens
-                  md: '14px',  // Larger screens
-                  lg: '16px'   // Very large screens
+                  xs: '10px',
+                  sm: '12px',
+                  md: '14px',
+                  lg: '16px'
                 }
               }
             }}
