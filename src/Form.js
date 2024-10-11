@@ -329,13 +329,9 @@ const MyForm = () => {
 
   }}
   const handlePhoneChange = (e) => {
-    const value = e.target.value;  // Trim any extra spaces
-
-    // Regular expression for validating a phone number (digits only, with a length check)
-    const phoneRegex = /^[0-9]{10}$/;  // Phone number with exactly 10 digits
-
+    const value = e.target.value;
+    const phoneRegex = /^[0-9]{10}$/;
     setContact(value);
-
     if (!phoneRegex.test(value)) {
       setContactError(true);
       setContactErrorMsg('Please enter a valid 10-digit phone number.');
@@ -359,29 +355,36 @@ const MyForm = () => {
             )}
 
           </Box>
-          <Box  sx={{
-            width: '35%',
-            position: 'absolute',
-            top: { sm: '34%', xs: "33%" },
-            right: "1.5%",
-            '& input': {
-              width: '100%',
-              py: {md:1,xs:0.5},
-              height: "18px",
-              border: "none",
-              borderRadius:1,
-              backgroundColor: "#00421E",
-              outline: "none",
-              color: "white",
-              fontSize: {
-                xs: '10px',  // Small screens
-                sm: '12px',  // Medium screens
-                md: '14px',  // Larger screens
-                lg: '16px'   // Very large screens
+          <Box
+            sx={{
+              width: '35%',
+              position: 'absolute',
+              top: { sm: '34%', xs: "33%" },
+              right: "1.5%",
+              display: 'flex',
+              justifyContent: 'center', // Center the content horizontally
+              alignItems: 'center', // Center the content vertically
+              marginBottom: { sm: '20px', xs: '15px' },
+              '& input': {
+                textAlign: "center", // Center text inside the input
+                width: '100%',
+                py: { md: 1, xs: 0.5 },
+                height: "18px",
+                border: "none",
+                borderRadius: 1,
+                backgroundColor: "#00421E",
+                outline: "none",
+                color: "white",
+                fontSize: {
+                  xs: '10px',  // Small screens
+                  sm: '12px',  // Medium screens
+                  md: '14px',  // Larger screens
+                  lg: '16px'   // Very large screens
+                }
               }
-            }
-          }}>
-            <input value={name} id='heet'/>
+            }}
+          >
+            <input value={name} id='heet' />
           </Box>
 
         </Box>
